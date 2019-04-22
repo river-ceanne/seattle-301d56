@@ -37,7 +37,7 @@ function displayPics(){
   }
   
   // TODO: In a sentence or two, explain why the previous line of code threw an error when we changed the variable declaration from `var to `let`.
-  // PUT YOUR RESPONSE IN THIS COMMENT
+  // let variable declaration keyword puts the rando variable into its scope which is the code block where it is declared (line 32-36 {}), hence it would not be available outside its block.
   console.log(viewed);
 
   for (let i = 0; i < 3; i++){
