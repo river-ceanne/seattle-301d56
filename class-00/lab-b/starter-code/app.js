@@ -185,14 +185,16 @@ let joe = new Student('Joe', 'Schmoe', 100);
 // Note that the arrow function will cause this code to break!
 console.log(joe);
 
-let NewStudent = (name,age,hometown) => ({
-  newName: name,
-  newAge: age,
-  newHometown: hometown
-});
+// let NewStudent = (name,age,hometown) => ({
+//   this.newName: name,
+//   this.newAge: age,
+//   this.newHometown: hometown
+// });
 
 //let newJoe = new NewStudent('Joe', 'Schmoe', 100);
 //console.log(newJoe);
+
+//above commented function returns error type error : NewStudent is not a constructor function
 
 //*****************************************//
 Student.prototype.greeting = function() {
@@ -208,6 +210,7 @@ Student.prototype.newGreeting = () => {
 }
 
 console.log(joe.newGreeting());
+//error thrown for this since 'this' is undefined in the arrow constructor function context
 
 //*****************************************//
 Student.courseName = function() {
@@ -217,7 +220,8 @@ Student.courseName = function() {
 // TODO: Uncomment the following line of code to see the output in the browser console
 console.log(Student.courseName());
 
-
+Student.newCourseName = () => `This student is enrolled in Code 301.`;
+console.log(Student.newCourseName());
 
 //*****************************************//
 // STEP 11
@@ -236,8 +240,8 @@ console.log(joe.scopeArrow());
 
 // TODO: Write a COMMENT below to answer the following questions.
 // 1. What is "this" when joe.scope() is invoked?
-// It was undefined.
+// It was undefined. The context is not defined in the parent block of arrow function.
 // 2. What is "this" when joe.scopeArrow() is invoked?
-// It was the window object of the DOM.
+// It was the window object of the DOM. It has the window context.
 // 3. Explain why "this" is different when an arrow function is used.
 // It is because arrow functions scope out upto the first parent of the block it contains.
