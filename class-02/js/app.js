@@ -2,7 +2,7 @@
 
 let imgArr = [];
 
-//**********************************************//
+//*********FEATURE 1 - DISPLAYING IMAGES*********************//
 
 function Image(image_url,title,description,keyword,horns){
   this.image_url = image_url;
@@ -12,13 +12,13 @@ function Image(image_url,title,description,keyword,horns){
   this.horns = horns;
 }
 
+console.table(imgArr);
 
-$.get( 'data/page-1.json', function(data) {
+$.get( '../data/page-1.json', function(data) {
   $.each(data, function(i, $val)
   {
     let newImage = new Image($val.image_url,$val.title,$val.description,$val.keyword,$val.horns);
     imgArr.push(newImage);
-    // sectionPhotos.appendChild(imgEl.setAttribute('src'),newImage.image_url);
     const imgEl = document.createElement('IMG');
     imgEl.setAttribute('src',$val.image_url);
     $('#photo-template').append(imgEl);
@@ -26,7 +26,48 @@ $.get( 'data/page-1.json', function(data) {
 
 }, 'json' );
 
+console.log(imgArr);
+console.log('end of loading images');
 
 
-console.table(imgArr);
+//***********FEATURE 2 - FILTER*****************************//
+console.log('start of imageArr foreach outside func');
+
+function afterLoad(){
+  console.log('cjksdbvksmbvskj')
+}
+
+imgArr.forEach(function(element){
+  console.log('element : ' + element);
+  const optEl = document.createElement('option');
+  optEl.setAttribute('value',element.keyword);
+  optEl.id = element.title;
+  console.log(optEl + 'opt El');
+
+  let o = new Option(element.keyword,element.keyword);
+  /// jquerify the DOM object 'o' so we can use the html method
+  $(o).html(element.keyword);
+  $('#filter-select').append(o);
+
+  console.log('end of foreach');
+});
+
+$(document).ready(function (){
+  console.log('csdjbkfkb');
+});
+
+
+// $.each(imgArr, function (i, item) {
+//   $('#filter-select').append($('<option>', {
+//     value: item.keyword,
+//     text : item.keyword
+//   }));
+// });
+
+for(let i = 0; i < imgArr.length; i++){
+  console.log(imgArr[i]);
+}
+
+
+console.log('end of app.js');
 
