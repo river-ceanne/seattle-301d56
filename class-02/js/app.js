@@ -81,20 +81,15 @@ function onLoad(){
   );
   console.log(keys);
 
-  imgArr.forEach(function(element){
+  keys.forEach(function(element){
 
     console.log('element : ' + element);
     const optEl = document.createElement('option');
-    optEl.setAttribute('value',element.keyword);
-    optEl.id = element.keyword;
-    console.log(optEl + 'opt El');
-
-    let o = new Option(element.keyword,element.keyword);
-    /// jquerify the DOM object 'o' so we can use the html method
-    $(o).html(element.keyword);
-    $('#filter-select').append(o);
-
-    console.log('end of foreach');
+    optEl.setAttribute('value',element);
+    optEl.id = element;
+    optEl.text = element;
+    console.log(optEl.value);
+    $('.filter-select').append(optEl);
   });
 
 }
