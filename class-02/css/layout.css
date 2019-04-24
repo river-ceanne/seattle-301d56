@@ -10,3 +10,26 @@ select{
   width: 15%;
   margin-right: 2.5%;
 }
+
+footer{
+  text-align: center;
+  background-color: rgb(218, 64, 218);
+  margin-top: 200px;
+}
+
+fieldset {
+  display: block;
+  float: right;
+  padding-right: 30px;
+  padding-top: 30px;
+}
+
+select {
+  width: 150px;
+  font-size: 20px;
+}
+
+fieldset label {
+  text-align: center;
+  padding-bottom: 40px;
+}
