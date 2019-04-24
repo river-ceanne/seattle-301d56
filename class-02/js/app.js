@@ -1,6 +1,5 @@
 'use strict';
 
-const sectionPhotos = document.getElementById('photo-template');
 let imgArr = [];
 
 //**********************************************//
@@ -28,10 +27,6 @@ $.get( 'data/page-1.json', function(data) {
 }, 'json' );
 
 
-imgArr.forEach(function(element){
-
-  sectionPhotos.appendChild();
-});
 
 console.table(imgArr);
 
