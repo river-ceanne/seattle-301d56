@@ -1,11 +1,11 @@
 img{
   height: 200px;
   width: auto;
-  margin: 2%;
+  margin: 2% 5% 2% 5%;
 }
 
 select{
   float: right;
   width: 15%;
-  margin-right: 2.5%;
+  margin: 2.5%;
 }

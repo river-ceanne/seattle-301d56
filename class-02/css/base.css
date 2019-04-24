@@ -18,3 +18,8 @@ img{
   border-radius: 20px;
   border: 2px solid rgb(218, 64, 218);
 }
+footer{
+  background-color: rgb(218, 64, 218);
+  padding: 5%;
+  text-align: center;
+}
