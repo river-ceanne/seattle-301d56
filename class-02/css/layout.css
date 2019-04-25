@@ -25,7 +25,10 @@ fieldset {
   padding-right: 30px;
   padding-top: 30px;
 }
-
+.filter-section{
+  display: flex;
+  justify-content: space-evenly;
+}
 cite {
   float: left;
   text-align: center;
@@ -50,14 +53,17 @@ header nav ul{
 }
 #photo-template div{
   margin-top: 5%;
-  max-width: 30%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 #photo-template{
+  max-width: 1080px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  margin-right: auto;
+  margin-left: auto;
 
 }
