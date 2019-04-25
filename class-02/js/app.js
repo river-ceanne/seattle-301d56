@@ -99,14 +99,31 @@ function showSortedImages(sortWord){
   }
 
   imgArr.forEach( function(element){
-    const imgEl = document.createElement('IMG');
-    const titleEl = document.createElement('cite');
-    const divEl = document.createElement('div');
-    imgEl.setAttribute('src',element.image_url);
-    titleEl.textContent = element.title;
-    divEl.appendChild(imgEl);
-    divEl.appendChild(titleEl);
-    $('#photo-template').append(divEl);
+    // const imgEl = document.createElement('IMG');
+    // const titleEl = document.createElement('cite');
+    // const divEl = document.createElement('div');
+    // imgEl.setAttribute('src',element.image_url);
+    // titleEl.textContent = element.title;
+    // divEl.appendChild(imgEl);
+    // divEl.appendChild(titleEl);
+
+
+    // Grab the template script
+    var photoTemplateScript = $('#images-handlebars-template').html();
+    console.log(photoTemplateScript);
+    // Compile the template
+    var photoTemplate = Handlebars.compile(photoTemplateScript);
+
+    // Pass our data to the template
+    var compiledHtml = photoTemplate(element);
+
+    // Add the compiled html to the page
+    console.log(compiledHtml);
+    $('#photo-template').append(compiledHtml);
+
+
+
+    //$('#photo-template').append(divEl);
   });
 
 }
