@@ -3,6 +3,7 @@ img{
   height: 200px;
   width: auto;
   margin: 2%;
+  float: left;
 }
 
 select{
@@ -15,6 +16,7 @@ footer{
   text-align: center;
   background-color: rgb(218, 64, 218);
   margin-top: 200px;
+  height: 100px;
 }
 
 fieldset {
@@ -22,6 +24,12 @@ fieldset {
   float: right;
   padding-right: 30px;
   padding-top: 30px;
+}
+
+cite {
+  float: left;
+  text-align: center;
+  width: 250px;
 }
 
 select {
@@ -33,7 +41,7 @@ fieldset label {
   text-align: center;
   padding-bottom: 40px;
 }
-.nav ul{
+header nav ul{
   display: flex;
   justify-content: space-around;
   text-decoration-style: none;

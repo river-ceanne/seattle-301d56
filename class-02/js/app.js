@@ -40,6 +40,17 @@ function onLoad(){
     $('.filter-select').append(optEl);
   });
 
+  const optElTitle = document.createElement('option');
+  optElTitle.setAttribute('value','Title');
+  optElTitle.id = 'Title';
+  optElTitle.text = 'Title';
+  $('.sort-select').append(optElTitle);
+  const optElHorns = document.createElement('option');
+  optElHorns.setAttribute('value','# of Horns');
+  optElHorns.id = '# of Horns';
+  optElHorns.text = '# of Horns';
+  $('.sort-select').append(optElHorns);
+
 }
 
 function handleSelect(e){
@@ -62,3 +73,50 @@ function showFilterImages(keywordSelected){
   });
 
 }
+
+function handleSort(e){
+  e.preventDefault();
+  console.log(e.target.value);
+  showSortedImages(e.target.value);
+}
+
+function showSortedImages(sortWord){
+
+  $('#photo-template').empty();
+
+  if(sortWord === 'Title'){
+    sortByTitle();
+  }
+
+  if(sortWord === '# of Horns'){
+    sortByHorns();
+  }
+
+  imgArr.forEach( function(element){
+    const imgEl = document.createElement('IMG');
+    imgEl.setAttribute('src',element.image_url);
+    $('#photo-template').append(imgEl);
+  });
+
+}
+
+function sortByTitle(){
+  imgArr.sort(function(a,b){
+    let newA = a.title.toLowerCase();
+    let newB = b.title.toLowerCase();
+    if (newA < newB) {return -1;}
+    if (newA > newB) {return 1;}
+  });
+  //return imgArr;
+  console.log(imgArr);
+}
+
+function sortByHorns(){
+  imgArr.sort(function(a, b){
+    return a.horns - b.horns;
+  });
+
+  console.log(imgArr);
+}
+
+
