@@ -4,7 +4,7 @@ let imgArr = [];
 
 console.table(imgArr);
 
-$.get( '../data/page-2.json', function(data) {
+$.get( './../data/page-2.json', function(data) {
   $.each(data, function(i, $val)
   {
     let newImage = new Image($val.image_url,$val.title,$val.description,$val.keyword,$val.horns);
