@@ -16,7 +16,6 @@ $.get( '../data/page-2.json', function(data) {
   $('.filter-select').on('change',handleSelect);
   $('.sort-select').on('change',handleSort);
 
-
 });
 
 console.log(imgArr);
