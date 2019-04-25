@@ -1,5 +1,8 @@
 header{
   background-color: rgb(218, 64, 218);
+  /* Gradient rainbow background from stack overflow https://stackoverflow.com/questions/40557461/rainbow-gradient-on-text-in-css */
+  background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet); /* Standard syntax (must be last) */
   padding-bottom: 2.5%;
 
 }
@@ -12,7 +15,7 @@ h1{
   font-family: 'Montserrat', sans-serif;
   text-align: center;
   line-height: 200px;
-  padding-top: 2.5%
+  padding-top: 2.5%;
 }
 img{
   border-radius: 20px;

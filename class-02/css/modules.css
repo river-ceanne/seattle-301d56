@@ -7,3 +7,6 @@ li{
 a{
   color: black;
 }
+a:hover{
+  color: rgb(245, 68, 245)
+}
