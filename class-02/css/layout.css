@@ -23,6 +23,10 @@ fieldset {
   padding-right: 30px;
   padding-top: 30px;
 }
+div{
+  flex-wrap: wrap;
+  display: inline-block;
+}
 
 select {
   width: 150px;
@@ -32,4 +36,11 @@ select {
 fieldset label {
   text-align: center;
   padding-bottom: 40px;
+}
+.nav ul{
+  display: flex;
+  justify-content: space-around;
+  text-decoration-style: none;
+  font-size: 40px;
+
 }

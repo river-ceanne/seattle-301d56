@@ -1,7 +1,5 @@
 'use strict';
 
-let imgArr = [];
-
 //*********FEATURE 1 - DISPLAYING IMAGES*********************//
 
 function Image(image_url,title,description,keyword,horns){
@@ -12,26 +10,6 @@ function Image(image_url,title,description,keyword,horns){
   this.horns = horns;
 }
 
-console.table(imgArr);
-
-$.get( '../data/page-1.json', function(data) {
-  $.each(data, function(i, $val)
-  {
-    let newImage = new Image($val.image_url,$val.title,$val.description,$val.keyword,$val.horns);
-    imgArr.push(newImage);
-    const imgEl = document.createElement('IMG');
-    imgEl.setAttribute('src',$val.image_url);
-    $('#photo-template').append(imgEl);
-  });
-
-  onLoad();
-
-  $('.filter-select').on('change',handleSelect);
-
-});
-
-console.log(imgArr);
-console.log('end of loading images');
 
 
 //***********FEATURE 2 - FILTER*****************************//
