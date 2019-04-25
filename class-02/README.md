@@ -12,7 +12,6 @@ Finish time: 10AM
 Actual time needed to complete: 1 hour
 
 
-
 Number and name of feature: FEATURE 2
 
 Estimate of time needed to complete: 1 hour
