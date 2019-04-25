@@ -25,9 +25,6 @@ fieldset {
   padding-right: 30px;
   padding-top: 30px;
 }
-#photo-template div{
-  display: inline-block;
-}
 
 cite {
   float: left;
@@ -49,5 +46,18 @@ header nav ul{
   justify-content: space-around;
   text-decoration-style: none;
   font-size: 40px;
+  
+}
+#photo-template div{
+  margin-top: 5%;
+  max-width: 30%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+#photo-template{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 
 }
