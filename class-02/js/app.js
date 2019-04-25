@@ -11,7 +11,6 @@ function Image(image_url,title,description,keyword,horns){
 }
 
 
-
 //***********FEATURE 2 - FILTER*****************************//
 console.log('start of imageArr foreach outside func');
 
@@ -51,6 +50,8 @@ function onLoad(){
   optElHorns.text = '# of Horns';
   $('.sort-select').append(optElHorns);
 
+  showSortedImages('Title');
+
 }
 
 function handleSelect(e){
@@ -67,8 +68,13 @@ function showFilterImages(keywordSelected){
   imgArr.forEach( function(element){
     if(keywordSelected === element.keyword){
       const imgEl = document.createElement('IMG');
+      const titleEl = document.createElement('cite');
+      const divEl = document.createElement('div');
       imgEl.setAttribute('src',element.image_url);
-      $('#photo-template').append(imgEl);
+      titleEl.textContent = element.title;
+      divEl.appendChild(imgEl);
+      divEl.appendChild(titleEl);
+      $('#photo-template').append(divEl);
     }
   });
 
@@ -94,8 +100,13 @@ function showSortedImages(sortWord){
 
   imgArr.forEach( function(element){
     const imgEl = document.createElement('IMG');
+    const titleEl = document.createElement('cite');
+    const divEl = document.createElement('div');
     imgEl.setAttribute('src',element.image_url);
-    $('#photo-template').append(imgEl);
+    titleEl.textContent = element.title;
+    divEl.appendChild(imgEl);
+    divEl.appendChild(titleEl);
+    $('#photo-template').append(divEl);
   });
 
 }
