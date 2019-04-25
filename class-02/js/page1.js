@@ -22,6 +22,7 @@ $.get( '../data/page-1.json', function(data) {
   onLoad();
 
   $('.filter-select').on('change',handleSelect);
+  $('.sort-select').on('change',handleSort);
 
 });
 
