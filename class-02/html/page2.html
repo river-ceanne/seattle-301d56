@@ -42,8 +42,15 @@
           </fieldset>
         </form>
       </section>
-      <section id="photo-template">
-      </section>
+      <section id="photo-template"></section>
+
+      <script id="images-handlebars-template" type="text/x-handlebars-template">
+        <div id="image-div">
+            <img src={{image_url}}>
+            <cite>{{title}}</cite>
+        </div>
+      </script>
+
     </main>
     <footer>
       &copy; 2018 Code Fellows

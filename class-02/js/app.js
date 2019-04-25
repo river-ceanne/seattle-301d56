@@ -2,7 +2,7 @@
 
 //*********FEATURE 1 - DISPLAYING IMAGES*********************//
 
-function Image(image_url,title,description,keyword,horns){
+function Image(image_url, title, description, keyword, horns) {
   this.image_url = image_url;
   this.title = title;
   this.description = description;
@@ -15,12 +15,12 @@ function Image(image_url,title,description,keyword,horns){
 console.log('start of imageArr foreach outside func');
 
 
-function onLoad(){
+function onLoad() {
 
   let keys = [];
 
-  imgArr.forEach( function(element){
-    if(!keys.includes(element.keyword))
+  imgArr.forEach(function (element) {
+    if (!keys.includes(element.keyword))
       keys.push(element.keyword);
     console.log(element.keyword);
   }
@@ -28,11 +28,11 @@ function onLoad(){
   );
   console.log(keys);
 
-  keys.forEach(function(element){
+  keys.forEach(function (element) {
 
     console.log('element : ' + element);
     const optEl = document.createElement('option');
-    optEl.setAttribute('value',element);
+    optEl.setAttribute('value', element);
     optEl.id = element;
     optEl.text = element;
     console.log(optEl.value);
@@ -40,12 +40,12 @@ function onLoad(){
   });
 
   const optElTitle = document.createElement('option');
-  optElTitle.setAttribute('value','Title');
+  optElTitle.setAttribute('value', 'Title');
   optElTitle.id = 'Title';
   optElTitle.text = 'Title';
   $('.sort-select').append(optElTitle);
   const optElHorns = document.createElement('option');
-  optElHorns.setAttribute('value','# of Horns');
+  optElHorns.setAttribute('value', '# of Horns');
   optElHorns.id = '# of Horns';
   optElHorns.text = '# of Horns';
   $('.sort-select').append(optElHorns);
@@ -54,76 +54,85 @@ function onLoad(){
 
 }
 
-function handleSelect(e){
+function handleSelect(e) {
   e.preventDefault();
   console.log(e.target.value);
   showFilterImages(e.target.value);
 
 }
 
-function showFilterImages(keywordSelected){
+function showFilterImages(keywordSelected) {
 
   $('#photo-template').empty();
 
-  imgArr.forEach( function(element){
-    if(keywordSelected === element.keyword){
-      const imgEl = document.createElement('IMG');
-      const titleEl = document.createElement('cite');
-      const divEl = document.createElement('div');
-      imgEl.setAttribute('src',element.image_url);
-      titleEl.textContent = element.title;
-      divEl.appendChild(imgEl);
-      divEl.appendChild(titleEl);
-      $('#photo-template').append(divEl);
+  imgArr.forEach(function (element) {
+    if (keywordSelected === element.keyword) {
+      var photoTemplateScript = $('#images-handlebars-template').html();
+      console.log(photoTemplateScript);
+      // Compile the template
+      var photoTemplate = Handlebars.compile(photoTemplateScript);
+
+      // Pass our data to the template
+      var compiledHtml = photoTemplate(element);
+
+      // Add the compiled html to the page
+      console.log(compiledHtml);
+      $('#photo-template').append(compiledHtml);
     }
   });
 
 }
 
-function handleSort(e){
+function handleSort(e) {
   e.preventDefault();
   console.log(e.target.value);
   showSortedImages(e.target.value);
 }
 
-function showSortedImages(sortWord){
+function showSortedImages(sortWord) {
 
   $('#photo-template').empty();
 
-  if(sortWord === 'Title'){
+  if (sortWord === 'Title') {
     sortByTitle();
   }
 
-  if(sortWord === '# of Horns'){
+  if (sortWord === '# of Horns') {
     sortByHorns();
   }
 
-  imgArr.forEach( function(element){
-    const imgEl = document.createElement('IMG');
-    const titleEl = document.createElement('cite');
-    const divEl = document.createElement('div');
-    imgEl.setAttribute('src',element.image_url);
-    titleEl.textContent = element.title;
-    divEl.appendChild(imgEl);
-    divEl.appendChild(titleEl);
-    $('#photo-template').append(divEl);
+  imgArr.forEach(function (element) {
+
+    // Grab the template script
+    var photoTemplateScript = $('#images-handlebars-template').html();
+    console.log(photoTemplateScript);
+    // Compile the template
+    var photoTemplate = Handlebars.compile(photoTemplateScript);
+
+    // Pass our data to the template
+    var compiledHtml = photoTemplate(element);
+
+    // Add the compiled html to the page
+    console.log(compiledHtml);
+    $('#photo-template').append(compiledHtml);
+
   });
 
 }
 
-function sortByTitle(){
-  imgArr.sort(function(a,b){
+function sortByTitle() {
+  imgArr.sort(function (a, b) {
     let newA = a.title.toLowerCase();
     let newB = b.title.toLowerCase();
-    if (newA < newB) {return -1;}
-    if (newA > newB) {return 1;}
+    if (newA < newB) { return -1; }
+    if (newA > newB) { return 1; }
   });
   //return imgArr;
   console.log(imgArr);
 }
 
-function sortByHorns(){
-  imgArr.sort(function(a, b){
+function sortByHorns() {
+  imgArr.sort(function (a, b) {
     return a.horns - b.horns;
   });
 
